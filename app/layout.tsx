@@ -2,11 +2,10 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
 import NavLink from "./components/nav-link";
+import { LAW_OFFICE_NAME, SITE_URL } from "./site-config";
 import "./globals.css";
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://kantorab.netlify.app";
-const lawOfficeName = "Адвокатска кантора Красимир Бънчев";
+const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION;
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,10 +18,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: `${lawOfficeName} | Кантора Бънчев`,
-    template: `%s | ${lawOfficeName}`,
+    default: `${LAW_OFFICE_NAME} | Кантора Бънчев`,
+    template: `%s | ${LAW_OFFICE_NAME}`,
   },
   description:
     "Адвокат Красимир Бънчев - адвокатска кантора в Момчилград. Консултации и процесуално представителство по гражданско, трудово, наследствено и търговско право.",
@@ -40,11 +39,16 @@ export const metadata: Metadata = {
     type: "website",
     locale: "bg_BG",
     url: "/",
-    siteName: lawOfficeName,
-    title: `${lawOfficeName} | Кантора Бънчев`,
+    siteName: LAW_OFFICE_NAME,
+    title: `${LAW_OFFICE_NAME} | Кантора Бънчев`,
     description:
       "Правни консултации и представителство от адвокат Красимир Бънчев за граждани и бизнес.",
   },
+  verification: googleVerification
+    ? {
+        google: googleVerification,
+      }
+    : undefined,
   robots: {
     index: true,
     follow: true,
@@ -64,9 +68,9 @@ export const metadata: Metadata = {
 const legalServiceJsonLd = {
   "@context": "https://schema.org",
   "@type": "LegalService",
-  name: lawOfficeName,
+  name: LAW_OFFICE_NAME,
   alternateName: ["Кантора Бънчев", "Красимир Бънчев"],
-  url: siteUrl,
+  url: SITE_URL,
   telephone: "+359882550201",
   email: "kantora_banchev@abv.bg",
   address: {
