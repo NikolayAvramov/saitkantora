@@ -26,13 +26,13 @@ export default function BlogPage() {
   return (
     <div className="site-container pb-20 pt-14">
       <header className="max-w-3xl reveal">
-        <span className="section-label">Публикации</span>
         <h1 className="title-accent mt-5 text-4xl font-semibold leading-tight text-stone-900 md:text-5xl">
           Анализи и практически насоки по актуални правни теми
         </h1>
         <p className="mt-4 text-stone-700">
-          Селекция от кратки материали, насочени към реални казуси от практиката.
-          Целта е да разполагате с конкретни ориентири преди да предприемете действия.
+          Селекция от кратки материали, насочени към реални казуси от
+          практиката. Целта е да разполагате с конкретни ориентири преди да
+          предприемете действия.
         </p>
       </header>
 
@@ -42,8 +42,12 @@ export default function BlogPage() {
             <p className="text-xs font-semibold uppercase tracking-[0.1em] text-stone-600">
               {post.category} · {post.date}
             </p>
-            <h2 className="mt-2 text-2xl font-semibold text-stone-900">{post.title}</h2>
-            <p className="mt-3 text-sm leading-7 text-stone-700">{post.excerpt}</p>
+            <h2 className="mt-2 text-2xl font-semibold text-stone-900">
+              {post.title}
+            </h2>
+            <p className="mt-3 text-sm leading-7 text-stone-700">
+              {post.excerpt}
+            </p>
           </article>
         ))}
       </section>

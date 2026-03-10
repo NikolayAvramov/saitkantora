@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
+import NavLink from "./components/nav-link";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -34,7 +35,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="bg">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased text-stone-900`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased text-stone-900`}
+      >
         <header className="sticky top-0 z-50 border-b border-stone-300/70 bg-[#f9f6f1]/95 backdrop-blur">
           <div className="h-[2px] w-full bg-gradient-to-r from-[#8a5a2b]/30 via-[#9f7449]/60 to-[#1b3f53]/35" />
           <div className="site-container flex items-center justify-between py-4">
@@ -54,21 +57,15 @@ export default function RootLayout({
 
             <nav className="hidden items-center gap-7 md:flex">
               {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="relative text-sm font-medium text-stone-700 transition hover:text-[#684321] after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:rounded after:bg-[#8a5a2b] after:transition-all after:duration-200 hover:after:w-full"
-                >
-                  {item.label}
-                </Link>
+                <NavLink key={item.href} href={item.href} label={item.label} />
               ))}
             </nav>
 
             <a
-              href="tel:+35970000000"
+              href="tel:+359882550201"
               className="btn-primary rounded-lg px-4 py-2 text-sm font-semibold"
             >
-              +359 700 00 000
+              +359 882550201
             </a>
           </div>
         </header>
@@ -78,19 +75,27 @@ export default function RootLayout({
         <footer className="mt-20 border-t border-stone-300 bg-[#f6f0e5]">
           <div className="site-container grid gap-10 py-12 md:grid-cols-4">
             <div className="md:col-span-2">
-              <h3 className="text-xl font-semibold text-stone-900">Адвокатска кантора Красимир Бънчев</h3>
+              <h3 className="text-xl font-semibold text-stone-900">
+                Адвокатска кантора Красимир Бънчев
+              </h3>
               <p className="mt-3 max-w-xl text-sm text-stone-700">
-                Практична правна подкрепа с фокус върху ясна комуникация, стъпков план
-                за действие и защита на интереса на клиента във всеки етап от казуса.
+                Практична правна подкрепа с фокус върху ясна комуникация,
+                стъпков план за действие и защита на интереса на клиента във
+                всеки етап от казуса.
               </p>
             </div>
 
             <div>
-              <h4 className="text-sm font-semibold uppercase tracking-[0.08em] text-stone-800">Навигация</h4>
+              <h4 className="text-sm font-semibold uppercase tracking-[0.08em] text-stone-800">
+                Навигация
+              </h4>
               <ul className="mt-4 space-y-2 text-sm text-stone-700">
                 {navItems.map((item) => (
                   <li key={item.href}>
-                    <Link href={item.href} className="transition hover:text-[#684321]">
+                    <Link
+                      href={item.href}
+                      className="transition hover:text-[#684321]"
+                    >
                       {item.label}
                     </Link>
                   </li>
@@ -99,12 +104,16 @@ export default function RootLayout({
             </div>
 
             <div>
-              <h4 className="text-sm font-semibold uppercase tracking-[0.08em] text-stone-800">Данни за контакт</h4>
+              <h4 className="text-sm font-semibold uppercase tracking-[0.08em] text-stone-800">
+                Данни за контакт
+              </h4>
               <ul className="mt-4 space-y-2 text-sm text-stone-700">
-                <li>Телефон: +359 700 00 000</li>
-                <li>Email: info@advbanchev.bg</li>
-                <li>Адрес: Момчилград, България</li>
-                <li>Работно време: Понелник - Петък, 09:00 - 18:00</li>
+                <li>Телефон: +359 882550201</li>
+                <li>Email: kantora_banchev@abv.bg</li>
+                <li>
+                  Адрес: гр. Момчилград, ул. Гюмюрджинска 50а, ет. 2, ап. 1
+                </li>
+                <li>Работно време: Понелник - Петък, 08:30 - 17:30</li>
               </ul>
             </div>
           </div>
