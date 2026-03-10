@@ -4,6 +4,10 @@ import Link from "next/link";
 import NavLink from "./components/nav-link";
 import "./globals.css";
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://kantorab.netlify.app";
+const lawOfficeName = "Адвокатска кантора Красимир Бънчев";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -15,9 +19,65 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Адвокатска кантора Красимир Бънчев",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: `${lawOfficeName} | Кантора Бънчев`,
+    template: `%s | ${lawOfficeName}`,
+  },
   description:
-    "Професионални юридически консултации и процесуално представителство за граждани и бизнес.",
+    "Адвокат Красимир Бънчев - адвокатска кантора в Момчилград. Консултации и процесуално представителство по гражданско, трудово, наследствено и търговско право.",
+  keywords: [
+    "кантора Бънчев",
+    "Красимир Бънчев",
+    "адвокат Красимир Бънчев",
+    "адвокатска кантора Момчилград",
+    "правни услуги Момчилград",
+  ],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "bg_BG",
+    url: "/",
+    siteName: lawOfficeName,
+    title: `${lawOfficeName} | Кантора Бънчев`,
+    description:
+      "Правни консултации и представителство от адвокат Красимир Бънчев за граждани и бизнес.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  icons: {
+    icon: "/logo.png",
+  },
+};
+
+const legalServiceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LegalService",
+  name: lawOfficeName,
+  alternateName: ["Кантора Бънчев", "Красимир Бънчев"],
+  url: siteUrl,
+  telephone: "+359882550201",
+  email: "kantora_banchev@abv.bg",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "ул. Гюмюрджинска 50а, ет. 2, ап. 1",
+    addressLocality: "Момчилград",
+    postalCode: "6800",
+    addressCountry: "BG",
+  },
+  areaServed: "BG",
+  openingHours: ["Mo-Fr 08:30-17:30"],
 };
 
 const navItems = [
@@ -38,6 +98,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased text-stone-900`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(legalServiceJsonLd),
+          }}
+        />
         <header className="sticky top-0 z-50 border-b border-stone-300/70 bg-[#f9f6f1]/95 backdrop-blur">
           <div className="h-[2px] w-full bg-gradient-to-r from-[#8a5a2b]/30 via-[#9f7449]/60 to-[#1b3f53]/35" />
           <div className="site-container flex items-center justify-between py-4">
