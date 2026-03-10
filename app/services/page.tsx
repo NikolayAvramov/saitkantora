@@ -1,161 +1,101 @@
-"use client";
-
 import Link from "next/link";
 
-const services = [
+const sections = [
   {
     id: "inheritance",
     title: "Наследствено право",
-    icon: "📜",
     description:
-      "Експертиза в разделяне на наследство, завещания и семейни спорове",
-    details: [
-      "Съставяне и проверка на завещания",
-      "Разрешаване на наследствени спорове",
-      "Раздел на наследство",
-      "Представителство пред нотариуси",
+      "Правна помощ при наследяване, завещания, делби и спорове между наследници.",
+    points: [
+      "Проверка и изготвяне на завещания",
+      "Процедури по приемане и отказ от наследство",
+      "Съдебна и извънсъдебна делба",
+      "Оспорване на сделки и завещателни разпореждания",
     ],
   },
   {
     id: "corporate",
-    title: "Корпоративно право",
-    icon: "🏛️",
-    description: "Регистрация на фирми, договори и корпоративна управления",
-    details: [
-      "Регистрация и учредяване на фирми",
-      "Договори и споразумения",
-      "Корпоративна управління",
-      "Слияния и придобивания",
+    title: "Търговско и корпоративно право",
+    description:
+      "Подкрепа за дружества при учредяване, преструктуриране и ежедневна дейност.",
+    points: [
+      "Регистрация на дружества и промени по партиди",
+      "Договори между съдружници и управители",
+      "Процесуално представителство по търговски спорове",
+      "Правен одит на договори и вътрешни процедури",
     ],
   },
   {
     id: "labor",
-    title: "Работно право",
-    icon: "👔",
-    description: "Защита на трудовите права и разрешаване на спорове",
-    details: [
-      "Трудови договори",
-      "Защита на трудовите права",
-      "Трудови спорове",
-      "Представителство пред съде",
+    title: "Трудово право",
+    description:
+      "Защита на работодатели и служители при трудови отношения и спорове.",
+    points: [
+      "Изготвяне и преглед на трудови договори",
+      "Консултации при дисциплинарни производства",
+      "Защита при незаконно уволнение",
+      "Искове за трудови възнаграждения и обезщетения",
     ],
   },
   {
     id: "civil",
     title: "Гражданско право",
-    icon: "⚖️",
-    description: "Договорни споразумения и защита на граждански права",
-    details: [
-      "Договорни спорове",
-      "Защита на имущество",
-      "Отговорност",
-      "Командировки въз основата на договор",
+    description:
+      "Представителство по договорни, вещни и облигационни отношения.",
+    points: [
+      "Съставяне и преглед на граждански договори",
+      "Искове за неизпълнение и неустойки",
+      "Спорове за собственост и владение",
+      "Обезщетения за вреди",
     ],
   },
 ];
 
-export default function Services() {
+export default function ServicesPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
-      {/* Header */}
-      <section className="pt-32 pb-16 px-6 border-b border-amber-500/20">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-6xl font-bold text-amber-50 mb-4">
-            Нашите услуги
-          </h1>
-          <p className="text-2xl text-amber-200">
-            Комплексна юридическа подкрепа във всички области
+    <div className="site-container pb-20 pt-14">
+      <header className="max-w-3xl reveal">
+        <span className="section-label">Правни услуги</span>
+        <h1 className="title-accent mt-5 text-4xl font-semibold leading-tight text-stone-900 md:text-5xl">
+          Пълно правно обслужване с фокус върху предвидим резултат
+        </h1>
+        <p className="mt-4 text-stone-700">
+          Предлагаме консултации, изготвяне на документи и процесуално представителство.
+          Всеки казус се разглежда индивидуално, с ясно описание на рисковете и плана
+          за действие.
+        </p>
+      </header>
+
+      <section className="mt-10 grid gap-6 md:grid-cols-2 reveal delay-1">
+        {sections.map((section) => (
+          <article key={section.id} id={section.id} className="paper-card p-7 card-hover">
+            <h2 className="text-2xl font-semibold text-stone-900">{section.title}</h2>
+            <p className="mt-2 text-sm text-stone-700">{section.description}</p>
+            <ul className="mt-5 space-y-2 text-sm text-stone-700">
+              {section.points.map((point) => (
+                <li key={point} className="flex items-start gap-2">
+                  <span className="mt-1 text-xs text-stone-500">●</span>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </section>
+
+      <section className="mt-12 flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-stone-300 bg-[#f8f3ea] p-6 reveal delay-2">
+        <div>
+          <h3 className="text-xl font-semibold text-stone-900">Нужна е консултация по конкретен казус?</h3>
+          <p className="mt-1 text-sm text-stone-700">
+            Свържете се с кантората за първоначален правен анализ и насоки.
           </p>
         </div>
-      </section>
-
-      {/* Services Grid */}
-      <section className="py-24 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-8">
-            {services.map((service) => (
-              <div
-                key={service.id}
-                id={service.id}
-                className="group bg-gradient-to-br from-slate-800 to-slate-900 border border-amber-500/20 hover:border-amber-500/50 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:shadow-amber-500/20 backdrop-blur hover:-translate-y-2"
-              >
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="text-5xl group-hover:scale-110 transition-transform">
-                    {service.icon}
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-amber-50">
-                      {service.title}
-                    </h3>
-                    <p className="text-amber-200 text-sm mt-1">
-                      {service.description}
-                    </p>
-                  </div>
-                </div>
-
-                <ul className="space-y-3 mb-6">
-                  {service.details.map((detail, i) => (
-                    <li
-                      key={i}
-                      className="flex items-center gap-3 text-amber-100"
-                    >
-                      <span className="text-amber-400">✓</span>
-                      <span>{detail}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <Link
-                  href="/contact"
-                  className="inline-block border-2 border-amber-500 text-amber-400 px-6 py-2 rounded-lg hover:bg-amber-500/10 transition font-bold text-sm"
-                >
-                  Запиши консултация →
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Additional Services */}
-      <section className="py-24 px-6 border-y border-amber-500/20 bg-slate-900/50">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-amber-50 mb-12 text-center">
-            Специализирани услуги
-          </h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { title: "Представителство", desc: "През всички съдилища" },
-              { title: "Консултации", desc: "Дневни и онлайн" },
-              { title: "Абонамент", desc: "Правно обслужване" },
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="bg-gradient-to-br from-amber-500/10 to-yellow-600/10 border border-amber-500/30 rounded-lg p-6 backdrop-blur"
-              >
-                <h3 className="text-xl font-bold text-amber-50 mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-amber-200">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-20 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-amber-50 mb-6">
-            Не намери найс което търсиш?
-          </h2>
-          <Link
-            href="/contact"
-            className="bg-gradient-to-r from-amber-500 to-yellow-600 text-slate-900 px-8 py-4 rounded-lg hover:shadow-lg hover:shadow-amber-500/50 transition font-bold inline-block"
-          >
-            Свържи се с нас
-          </Link>
-        </div>
+        <Link
+          href="/contact"
+          className="btn-primary rounded-lg px-5 py-3 text-sm font-semibold"
+        >
+          Контактни данни
+        </Link>
       </section>
     </div>
   );
