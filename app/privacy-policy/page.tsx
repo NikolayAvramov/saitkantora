@@ -29,7 +29,7 @@ export default function PrivacyPolicyPage() {
             Администратор на лични данни е <strong>Красимир Бънчев</strong>.
           </p>
           <ul className="mt-3 space-y-1 text-sm text-stone-700">
-            <li>Имейл: info@advbanchev.bg</li>
+            <li>Имейл: kantora_banchev@abv.bg</li>
             <li>Телефон: +359 700 00 000</li>
             <li>Адрес: гр. Момчилград, България</li>
           </ul>

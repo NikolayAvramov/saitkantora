@@ -55,21 +55,26 @@ export default function ServicesPage() {
   return (
     <div className="site-container pb-20 pt-14">
       <header className="max-w-3xl reveal">
-        <span className="section-label">Правни услуги</span>
         <h1 className="title-accent mt-5 text-4xl font-semibold leading-tight text-stone-900 md:text-5xl">
           Пълно правно обслужване с фокус върху предвидим резултат
         </h1>
         <p className="mt-4 text-stone-700">
-          Предлагаме консултации, изготвяне на документи и процесуално представителство.
-          Всеки казус се разглежда индивидуално, с ясно описание на рисковете и плана
-          за действие.
+          Предлагаме консултации, изготвяне на документи и процесуално
+          представителство. Всеки казус се разглежда индивидуално, с ясно
+          описание на рисковете и плана за действие.
         </p>
       </header>
 
       <section className="mt-10 grid gap-6 md:grid-cols-2 reveal delay-1">
         {sections.map((section) => (
-          <article key={section.id} id={section.id} className="paper-card p-7 card-hover">
-            <h2 className="text-2xl font-semibold text-stone-900">{section.title}</h2>
+          <article
+            key={section.id}
+            id={section.id}
+            className="paper-card p-7 card-hover"
+          >
+            <h2 className="text-2xl font-semibold text-stone-900">
+              {section.title}
+            </h2>
             <p className="mt-2 text-sm text-stone-700">{section.description}</p>
             <ul className="mt-5 space-y-2 text-sm text-stone-700">
               {section.points.map((point) => (
@@ -85,7 +90,9 @@ export default function ServicesPage() {
 
       <section className="mt-12 flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-stone-300 bg-[#f8f3ea] p-6 reveal delay-2">
         <div>
-          <h3 className="text-xl font-semibold text-stone-900">Нужна е консултация по конкретен казус?</h3>
+          <h3 className="text-xl font-semibold text-stone-900">
+            Нужна е консултация по конкретен казус?
+          </h3>
           <p className="mt-1 text-sm text-stone-700">
             Свържете се с кантората за първоначален правен анализ и насоки.
           </p>
