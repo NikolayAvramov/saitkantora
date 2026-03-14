@@ -27,6 +27,13 @@ body {
   color: var(--foreground);
   font-family: var(--font-geist-sans), "Segoe UI", sans-serif;
   line-height: 1.55;
+  padding-bottom: calc(5.2rem + env(safe-area-inset-bottom));
+}
+
+@media (min-width: 768px) {
+  body {
+    padding-bottom: 0;
+  }
 }
 
 * {
@@ -186,4 +193,42 @@ main {
 
 .text-balance {
   text-wrap: balance;
+}
+
+.skip-link {
+  position: absolute;
+  left: 0.75rem;
+  top: -3rem;
+  z-index: 60;
+  border-radius: 0.5rem;
+  border: 1px solid color-mix(in srgb, var(--brand) 40%, white);
+  background: #fff7ea;
+  color: var(--brand-dark);
+  padding: 0.45rem 0.65rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: top 180ms ease;
+}
+
+.skip-link:focus {
+  top: 0.75rem;
+}
+
+.mobile-quick-actions {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 40;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+  border-top: 1px solid var(--line);
+  background: color-mix(in srgb, #f9f6f1 92%, white);
+  backdrop-filter: blur(6px);
+  padding: 0.65rem 1rem calc(0.65rem + env(safe-area-inset-bottom));
+}
+
+.mobile-quick-actions > a {
+  text-align: center;
 }

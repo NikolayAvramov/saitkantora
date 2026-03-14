@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
 import NavLink from "./components/nav-link";
+import MobileNav from "./components/mobile-nav";
 import { LAW_OFFICE_NAME, SITE_URL } from "./site-config";
 import "./globals.css";
 
@@ -102,6 +103,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased text-stone-900`}
       >
+        <a href="#main-content" className="skip-link">
+          Към съдържанието
+        </a>
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -110,16 +115,16 @@ export default function RootLayout({
         />
         <header className="sticky top-0 z-50 border-b border-stone-300/70 bg-[#f9f6f1]/95 backdrop-blur">
           <div className="h-[2px] w-full bg-gradient-to-r from-[#8a5a2b]/30 via-[#9f7449]/60 to-[#1b3f53]/35" />
-          <div className="site-container flex items-center justify-between py-4">
+          <div className="site-container flex items-center justify-between gap-3 py-3 md:py-4">
             <Link href="/" className="group flex items-center gap-3">
               <div className="flex size-10 items-center justify-center rounded-lg border border-[#7a4f28]/40 bg-[#8a5a2b] text-lg text-[#fff7ea] transition group-hover:scale-105">
                 ⚖
               </div>
               <div>
-                <p className="text-sm font-semibold tracking-wide text-stone-900">
+                <p className="text-sm font-semibold tracking-wide text-stone-900 sm:text-base">
                   Красимир Бънчев
                 </p>
-                <p className="text-xs uppercase tracking-[0.12em] text-stone-600">
+                <p className="text-[11px] uppercase tracking-[0.12em] text-stone-600 sm:text-xs">
                   Адвокатска кантора
                 </p>
               </div>
@@ -131,20 +136,41 @@ export default function RootLayout({
               ))}
             </nav>
 
-            <a
-              href="tel:+359882550201"
-              className="btn-primary rounded-lg px-4 py-2 text-sm font-semibold"
-            >
-              +359 882550201
-            </a>
+            <div className="flex items-center gap-2">
+              <a
+                href="tel:+359882550201"
+                className="btn-primary hidden rounded-lg px-4 py-2 text-sm font-semibold sm:inline-flex"
+              >
+                +359 882550201
+              </a>
+              <a
+                href="tel:+359882550201"
+                className="btn-primary rounded-lg px-3 py-2 text-xs font-semibold sm:hidden"
+              >
+                Обади се
+              </a>
+              <MobileNav items={navItems} />
+            </div>
           </div>
         </header>
 
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
+
+        <div className="mobile-quick-actions md:hidden">
+          <a href="tel:+359882550201" className="btn-primary rounded-lg px-4 py-2 text-sm font-semibold">
+            Обади се
+          </a>
+          <Link href="/contact" className="btn-secondary rounded-lg px-4 py-2 text-sm font-semibold">
+            Контакти
+          </Link>
+          <Link href="/services" className="btn-secondary rounded-lg px-4 py-2 text-sm font-semibold">
+            Услуги
+          </Link>
+        </div>
 
         <footer className="mt-20 border-t border-stone-300 bg-[#f6f0e5]">
-          <div className="site-container grid gap-10 py-12 md:grid-cols-5">
-            <div className="md:col-span-2">
+          <div className="site-container grid gap-10 py-12 md:grid-cols-2 lg:grid-cols-5">
+            <div className="md:col-span-2 lg:col-span-2">
               <h3 className="text-xl font-semibold text-stone-900">
                 Адвокатска кантора Красимир Бънчев
               </h3>

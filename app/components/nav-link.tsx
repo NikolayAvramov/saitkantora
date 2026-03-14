@@ -6,11 +6,28 @@ import { usePathname } from "next/navigation";
 type NavLinkProps = {
   href: string;
   label: string;
+  variant?: "desktop" | "mobile";
 };
 
-export default function NavLink({ href, label }: NavLinkProps) {
+export default function NavLink({ href, label, variant = "desktop" }: NavLinkProps) {
   const pathname = usePathname();
   const isActive = href === "/" ? pathname === "/" : pathname.startsWith(href);
+
+  if (variant === "mobile") {
+    return (
+      <Link
+        href={href}
+        aria-current={isActive ? "page" : undefined}
+        className={`block w-full rounded-full border px-3 py-2 text-center text-sm font-medium whitespace-nowrap transition ${
+          isActive
+            ? "border-[#8a5a2b]/55 bg-[#efe0cd] text-[#684321]"
+            : "border-stone-300 bg-[#fbf7f0] text-stone-700"
+        }`}
+      >
+        {label}
+      </Link>
+    );
+  }
 
   return (
     <Link
