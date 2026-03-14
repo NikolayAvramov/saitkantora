@@ -76,7 +76,7 @@ export default function RootLayout({
         <main>{children}</main>
 
         <footer className="mt-20 border-t border-stone-300 bg-[#f6f0e5]">
-          <div className="site-container grid gap-10 py-12 md:grid-cols-4">
+          <div className="site-container grid gap-10 py-12 md:grid-cols-5">
             <div className="md:col-span-2">
               <h3 className="text-xl font-semibold text-stone-900">Адвокатска кантора Красимир Бънчев</h3>
               <p className="mt-3 max-w-xl text-sm text-stone-700">
@@ -107,10 +107,22 @@ export default function RootLayout({
                 <li>Работно време: Понелник - Петък, 09:00 - 18:00</li>
               </ul>
             </div>
+
+            <div>
+              <h4 className="text-sm font-semibold uppercase tracking-[0.08em] text-stone-800">Правна информация</h4>
+              <ul className="mt-4 space-y-2 text-sm text-stone-700">
+                <li>
+                  <Link href="/privacy-policy" className="transition hover:text-[#684321]">
+                    Политика за поверителност
+                  </Link>
+                </li>
+                <li>Администратор на лични данни: Красимир Бънчев</li>
+              </ul>
+            </div>
           </div>
 
           <div className="border-t border-stone-300/80 py-4 text-center text-xs text-stone-600">
-            © 2026 Адвокатска кантора Красимир Бънчев. Всички права запазени.
+            © 2026 Адвокатска кантора Красимир Бънчев. Всички права запазени. Администратор на лични данни: Красимир Бънчев.
           </div>
         </footer>
       </body>

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const contactCards = [
   {
     title: "Телефон",
@@ -48,7 +50,18 @@ export default function ContactPage() {
         ))}
       </section>
 
-    
+      <section className="mt-8 paper-card p-6 reveal delay-2">
+        <h2 className="text-xl font-semibold text-stone-900">Администратор на лични данни</h2>
+        <p className="mt-3 text-stone-700">
+          Администратор на лични данни е <strong>Красимир Бънчев</strong>.
+          За обработването на лични данни вижте
+          {" "}
+          <Link href="/privacy-policy" className="font-medium text-[#684321] hover:underline">
+            Политика за поверителност
+          </Link>
+          .
+        </p>
+      </section>
     </div>
   );
 }
