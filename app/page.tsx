@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Кантора Бънчев и адвокат Красимир Бънчев",
+  title: "Адвокат Красимир Бънчев",
   description:
     "Официален сайт на адвокатска кантора Красимир Бънчев в Момчилград. Правни консултации и представителство за граждани и бизнес.",
   alternates: {

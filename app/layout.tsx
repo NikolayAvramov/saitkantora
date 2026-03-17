@@ -21,7 +21,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${LAW_OFFICE_NAME} | Кантора Бънчев`,
+    default: `${LAW_OFFICE_NAME} | Адвокат Красимир Бънчев`,
     template: `%s | ${LAW_OFFICE_NAME}`,
   },
   description:
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     locale: "bg_BG",
     url: "/",
     siteName: LAW_OFFICE_NAME,
-    title: `${LAW_OFFICE_NAME} | Кантора Бънчев`,
+    title: `${LAW_OFFICE_NAME}`,
     description:
       "Правни консултации и представителство от адвокат Красимир Бънчев за граждани и бизнес.",
   },
