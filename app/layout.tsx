@@ -157,77 +157,110 @@ export default function RootLayout({
         <main id="main-content">{children}</main>
 
         <div className="mobile-quick-actions md:hidden">
-          <a href="tel:+359882550201" className="btn-primary rounded-lg px-4 py-2 text-sm font-semibold">
+          <a
+            href="tel:+359882550201"
+            className="btn-primary rounded-lg px-4 py-2 text-sm font-semibold"
+          >
             Обади се
           </a>
-          <Link href="/contact" className="btn-secondary rounded-lg px-4 py-2 text-sm font-semibold">
+          <Link
+            href="/contact"
+            className="btn-secondary rounded-lg px-4 py-2 text-sm font-semibold"
+          >
             Контакти
           </Link>
-          <Link href="/services" className="btn-secondary rounded-lg px-4 py-2 text-sm font-semibold">
+          <Link
+            href="/services"
+            className="btn-secondary rounded-lg px-4 py-2 text-sm font-semibold"
+          >
             Услуги
           </Link>
         </div>
 
-        <footer className="mt-20 border-t border-stone-300 bg-[#f6f0e5]">
-          <div className="site-container grid gap-10 py-12 md:grid-cols-2 lg:grid-cols-5">
-            <div className="md:col-span-2 lg:col-span-2">
-              <h3 className="text-xl font-semibold text-stone-900">
-                Адвокатска кантора Красимир Бънчев
-              </h3>
-              <p className="mt-3 max-w-xl text-sm text-stone-700">
-                Практична правна подкрепа с фокус върху ясна комуникация,
-                стъпков план за действие и защита на интереса на клиента във
-                всеки етап от казуса.
-              </p>
-            </div>
+        <footer className="mt-16 border-t border-stone-300 bg-[#f6f0e5] md:mt-20">
+          <div className="site-container py-10 sm:py-12">
+            <div className="grid gap-4 sm:gap-5 md:grid-cols-2 md:gap-8 lg:grid-cols-5">
+              <div className="rounded-xl border border-stone-300/75 bg-[#fbf6ee] p-5 md:col-span-2 md:border-0 md:bg-transparent md:p-0 lg:col-span-2">
+                <h3 className="text-xl font-semibold text-stone-900">
+                  Адвокатска кантора Красимир Бънчев
+                </h3>
+                <p className="mt-3 max-w-xl text-sm text-stone-700">
+                  Практична правна подкрепа с фокус върху ясна комуникация,
+                  стъпков план за действие и защита на интереса на клиента във
+                  всеки етап от казуса.
+                </p>
+              </div>
 
-            <div>
-              <h4 className="text-sm font-semibold uppercase tracking-[0.08em] text-stone-800">
-                Навигация
-              </h4>
-              <ul className="mt-4 space-y-2 text-sm text-stone-700">
-                {navItems.map((item) => (
-                  <li key={item.href}>
+              <div className="rounded-xl border border-stone-300/75 bg-[#fbf6ee] p-5 md:border-0 md:bg-transparent md:p-0">
+                <h4 className="text-sm font-semibold uppercase tracking-[0.08em] text-stone-800">
+                  Навигация
+                </h4>
+                <ul className="mt-4 space-y-2 text-sm text-stone-700">
+                  {navItems.map((item) => (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        className="transition hover:text-[#684321]"
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="rounded-xl border border-stone-300/75 bg-[#fbf6ee] p-5 md:border-0 md:bg-transparent md:p-0">
+                <h4 className="text-sm font-semibold uppercase tracking-[0.08em] text-stone-800">
+                  Данни за контакт
+                </h4>
+                <ul className="mt-4 space-y-2 text-sm text-stone-700">
+                  <li>
+                    Телефон:{" "}
+                    <a
+                      className="font-medium hover:text-[#684321]"
+                      href="tel:+359882550201"
+                    >
+                      +359 882550201
+                    </a>
+                  </li>
+                  <li>
+                    Email:{" "}
+                    <a
+                      className="font-medium hover:text-[#684321]"
+                      href="mailto:kantora_banchev@abv.bg"
+                    >
+                      kantora_banchev@abv.bg
+                    </a>
+                  </li>
+                  <li>
+                    Адрес: гр. Момчилград, ул. Гюмюрджинска 50а, ет. 2, ап. 1
+                  </li>
+                  <li>Работно време: Понелник - Петък, 08:30 - 17:30</li>
+                </ul>
+              </div>
+
+              <div className="rounded-xl border border-stone-300/75 bg-[#fbf6ee] p-5 md:border-0 md:bg-transparent md:p-0">
+                <h4 className="text-sm font-semibold uppercase tracking-[0.08em] text-stone-800">
+                  Правна информация
+                </h4>
+                <ul className="mt-4 space-y-2 text-sm text-stone-700">
+                  <li>
                     <Link
-                      href={item.href}
+                      href="/privacy-policy"
                       className="transition hover:text-[#684321]"
                     >
-                      {item.label}
+                      Политика за поверителност
                     </Link>
                   </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-sm font-semibold uppercase tracking-[0.08em] text-stone-800">
-                Данни за контакт
-              </h4>
-              <ul className="mt-4 space-y-2 text-sm text-stone-700">
-                <li>Телефон: +359 882550201</li>
-                <li>Email: kantora_banchev@abv.bg</li>
-                <li>
-                  Адрес: гр. Момчилград, ул. Гюмюрджинска 50а, ет. 2, ап. 1
-                </li>
-                <li>Работно време: Понелник - Петък, 08:30 - 17:30</li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-sm font-semibold uppercase tracking-[0.08em] text-stone-800">Правна информация</h4>
-              <ul className="mt-4 space-y-2 text-sm text-stone-700">
-                <li>
-                  <Link href="/privacy-policy" className="transition hover:text-[#684321]">
-                    Политика за поверителност
-                  </Link>
-                </li>
-                <li>Администратор на лични данни: Красимир Бънчев</li>
-              </ul>
+                  <li>Администратор на лични данни: Красимир Бънчев</li>
+                </ul>
+              </div>
             </div>
           </div>
 
-          <div className="border-t border-stone-300/80 py-4 text-center text-xs text-stone-600">
-            © 2026 Адвокатска кантора Красимир Бънчев. Всички права запазени. Администратор на лични данни: Красимир Бънчев.
+          <div className="border-t border-stone-300/80 px-4 py-4 text-center text-xs leading-relaxed text-stone-600 sm:px-0">
+            © 2026 Адвокатска кантора Красимир Бънчев. Всички права запазени.
+            Администратор на лични данни: Красимир Бънчев.
           </div>
         </footer>
       </body>

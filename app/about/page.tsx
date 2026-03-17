@@ -50,7 +50,7 @@ export default function AboutPage() {
           <h2 className="text-2xl font-semibold text-stone-900">Показатели</h2>
           <dl className="mt-5 space-y-4 text-sm text-stone-700">
             <div>
-              <dt className="font-semibold text-stone-900">5+ години</dt>
+              <dt className="font-semibold text-stone-900">3+ години</dt>
               <dd>практически опит</dd>
             </div>
             <div>
