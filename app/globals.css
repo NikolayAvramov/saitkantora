@@ -232,3 +232,9 @@ main {
 .mobile-quick-actions > a {
   text-align: center;
 }
+
+@media (min-width: 768px) {
+  .mobile-quick-actions {
+    display: none;
+  }
+}
