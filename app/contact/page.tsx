@@ -1,4 +1,20 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Контакти",
+  description:
+    "Контакти на адвокатска кантора Красимир Бънчев в Момчилград: телефон, имейл, адрес и работно време за правни консултации.",
+  keywords: [
+    "контакти адвокат Момчилград",
+    "телефон адвокат Красимир Бънчев",
+    "адрес адвокатска кантора Момчилград",
+    "правна консултация контакт",
+  ],
+  alternates: {
+    canonical: "/contact",
+  },
+};
 
 const contactCards = [
   {
